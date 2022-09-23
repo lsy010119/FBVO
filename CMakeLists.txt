@@ -42,6 +42,7 @@ list(APPEND LINK_LIBS
 # Set sourcefiles
 list(APPEND SOURCEFILES
   src/frame.cpp
+  src/motion_estimator.cpp
 )
 
 
