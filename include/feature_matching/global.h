@@ -11,6 +11,8 @@
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <sensor_msgs/PointCloud.h>
+#include <geometry_msgs/Point.h>
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
 
@@ -51,30 +53,32 @@ bool             FLAG_isframerecieved;
 public:
 
 
-Base(   const char* nodename_main,  \
-        const char* topicname_frame,\
-        const char* topicname_imu,  \
-        int         rate_frame,     \
-        int         rate_imu,       \
-        int         queuesize_frame,\
-        int         num_keyframe,   \
-        cv::Mat     cammtx,         \
-        cv::Mat     dst_coeff,      \
+Base(   const char* nodename_main,  
+        const char* topicname_frame,
+        const char* topicname_imu,  
+        int         rate_frame,     
+        int         rate_imu,       
+        int         queuesize_frame,
+        int         num_keyframe,   
+        cv::Mat     cammtx,         
+        cv::Mat     dst_coeff,      
         ros::NodeHandle* node_main
     ) : \
-        nodename_main       (nodename_main),     \
-        topicname_frame     (topicname_frame),   \
-        topicname_imu       (topicname_imu),     \
-        rate_frame          (rate_frame),        \
-        rate_imu            (rate_imu),          \
-        queuesize_frame     (queuesize_frame),   \
-        num_keyframe        (num_keyframe),      \
-        cammtx              (cammtx),            \
-        dst_coeff           (dst_coeff),         \
+        nodename_main       (nodename_main),  
+        topicname_frame     (topicname_frame),
+        topicname_imu       (topicname_imu),  
+        rate_frame          (rate_frame),     
+        rate_imu            (rate_imu),       
+        queuesize_frame     (queuesize_frame),
+        num_keyframe        (num_keyframe),   
+        cammtx              (cammtx),         
+        dst_coeff           (dst_coeff),      
         node_main           (node_main)
 
 {
 
+this->FLAG_iskeyframe = false;
+this->FLAG_isframerecieved = false;
 printf("\nBase Initialized\n");
 
 }

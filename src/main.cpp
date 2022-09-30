@@ -35,8 +35,8 @@ int main(int argc, char** argv)
     int num_keyframe = 1;
 
     cv::Mat cammtx = (cv::Mat_<double>(3,3) <<  347.344668, 0.00000000, 317.843671,
-                	                0.00000000, 346.900900, 255.698665,
-                	                0.00000000, 0.00000000, 1.00000000);
+                            	                0.00000000, 346.900900, 255.698665,
+                            	                0.00000000, 0.00000000, 1.00000000);
 
     cv::Mat dstcoeff = (cv::Mat_<double>(5,1) << -0.279997, 0.058631, 0.002795, -0.000103, 0.000000);
 
@@ -45,15 +45,15 @@ int main(int argc, char** argv)
 
     ros::NodeHandle node_main;
 
-    vo::Base DataHub(   nodename_main,  \
-                        topicname_frame,\
-                        topicname_imu,  \
-                        rate_frame,     \
-                        rate_imu,       \
-                        queuesize_frame,\
-                        num_keyframe,   \  
-                        cammtx,         \
-                        dstcoeff,       \      
+    vo::Base DataHub(   nodename_main,  
+                        topicname_frame,
+                        topicname_imu,  
+                        rate_frame,     
+                        rate_imu,       
+                        queuesize_frame,
+                        num_keyframe,   
+                        cammtx,         
+                        dstcoeff,            
                         &node_main      );
 
 

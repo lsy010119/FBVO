@@ -30,6 +30,7 @@ void Frame::FrameCallback(const sensor_msgs::ImageConstPtr& msg)
 
         }
 
+
         // If Frame Queue is Full
         else if (this->DataHub->queue_frame.size() == 2)
         {
